@@ -1,12 +1,39 @@
 package com.hackerrank.stocktrades.model;
 
+import com.hackerrank.stocktrades.validation.StockType;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class StockTrade {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @NotNull
+    @Column
+    @StockType
     private String type;
+
+    @NotNull
+    @Column
     private Integer userId;
+
+    @NotNull
+    @Column
     private String symbol;
+
+    @NotNull
+    @Column
     private Integer shares;
+
+    @NotNull
+    @Column
     private Integer price;
+
+    @NotNull
+    @Column
     private Long timestamp;
 
     public StockTrade() {
